@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تقديم طلب</title>
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+  </head>
+  <body>
+    <div id="page" class="site">
+      <div class="container">
+        <div class="form-box">
+          <!-- التقدم -->
+
+          <div class="progress">
+            <div class="logo">
+              <a href="/"><span>تعاقد</span></a> مبدئي
+            </div>
+            <ul class="progress-steps">
+              <li class="step active">
+                <span>1</span>
+                <p>
+                  المعلومات الشخصية<br /><span>معلومات التواصل الاساسية</span>
+                </p>
+              </li>
+              <li class="step">
+                <span>2</span>
+                <p>
+                  معلومات العقار<br /><span>تساعدنا علي الوصول لطلبك </span>
+                </p>
+              </li>
+              <li class="step">
+                <span>3</span>
+                <p>
+                  اضافة ملاحظة<br /><span
+                    >اضافه ملاحظات تساعدنا في ايجاد عقار مناسب</span
+                  >
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <form
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfkiIq8DnQHG084WauB5k9WDc-cFtMpCfpY6wIw1gn9o9kP-w/formResponse"
+      target="_self"
+      id="bootstrapForm"
+      method="POST"
+          >
+            <!-- القسم الاول -->
+
+            <div class="form-one form-step active">
+              <div class="bg-svg"></div>
+              <h2>المعلومات الشخصية</h2>
+              <p>ادخل المعلومات الشخصية بشكل صحيح</p>
+              <div>
+                <label>الإسم الثلاثي</label>
+                <input
+                  id="195245924" type="text" name="entry.195245924" class="form-control"
+                  placeholder="ضع الاسم بالكامل"
+                />
+              </div>
+              <div>
+                <label>رقم الجوال للتواصل</label>
+                <input
+                  id="585285828" type="text" name="entry.585285828" class="form-control"
+                  placeholder="+966 9999 9999"
+                />
+              </div>
+
+              <div>
+                <label>صفه المستفيد للعقار</label>
+                <select name="entry.150081308" id="roleSelect">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="Seller-form">Seller-form</option>
+                  <option value="Buyer-form">Buyer-form</option>
+                  <option value="Investor-form">Investor-form</option>
+                </select>
+                <div id="warningMessage" style="color: red; display: none">
+                  عليك الاختيار أولاً
+                </div>
+              </div>
+            </div>
+
+            <!-- البائع -->
+
+            <div class="Seller-form form-step">
+              <div class="bg-svg"></div>
+              <h2>بائع(مالك)</h2>
+              
+              <div>
+                <label>نوع العقار</label>
+                <select name="entry.1060538081">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="شقه">شقه</option>
+                  <option value="فيلا">فيلا</option>
+                  <option value="أرض">أرض</option>
+                  <option value="عظم">عظم</option>
+                  <option value="رهن">رهن</option>
+                </select>
+              </div>
+
+              <div>
+                <label>مدينة العقار</label>
+                <input
+                  type="text"
+                  name="entry.23563707"
+                  placeholder="المدينه"
+                />
+              </div>
+
+              <div>
+                <label>موقع العقار</label>
+                <input type="text" name="entry.1414601912" placeholder="" />
+              </div>
+
+              <div>
+                <label>قيمه العقار</label>
+                <input
+                  type="text"
+                  name="entry.2001365075"
+                  placeholder="100000"
+                />
+              </div>
+
+              <div>
+                <label>طريقه الدفع</label>
+                <select name="entry.1107694767" id="">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="كاش نقدي">كاش نقدي</option>
+                  <option value="بنك">بنك</option>
+                </select>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+            <!--  المشتري -->
+
+            <div class="form-two Buyer-form form-step">
+              <div class="bg-svg"></div>
+              <h2>مشتري</h2>
+              <div>
+                <label>نوع العقار</label>
+                <select name="entry.726436114" id="">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="شقه">شقه</option>
+                  <option value="فيلا">فيلا</option>
+                  <option value="أرض">أرض</option>
+                  <option value="عظم">عظم</option>
+                  <option value="رهن">رهن</option>
+                </select>
+              </div>
+
+              <div>
+                <label>مدينة العقار</label>
+                <input
+                  type="text"
+                  name="entry.1812084400"
+                  placeholder="المدينه"
+                />
+              </div>
+
+              <div>
+                <label>طريقه الدفع</label>
+                <select name="entry.314378418" id="">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="كاش نقدي">كاش نقدي</option>
+                  <option value="بنك">بنك</option>
+                </select>
+              </div>
+
+              <div>
+                <label>مبلغ الراتب الشهري</label>
+                <input
+                  type="text"
+                  name="entry.1543311179"
+                  placeholder="10000"
+                />
+              </div>
+
+              <div>
+                <label>القطاع</label>
+                <select name="entry.1936753188" id="">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="تعليم">تعليم</option>
+                  <option value="قطاع خاص">قطاع خاص</option>
+                  <option value="صحه">صحه</option>
+                  <option value="غير ذالك">غير ذالك</option>
+                </select>
+              </div>
+
+              <div>
+                <label>الالتزام الشهري</label>
+                <input
+                  type="text"
+                  name="entry.2043522105"
+                  placeholder="10000"
+                />
+              </div>
+
+              <div class="birth">
+                <label>تاريخ الميلاد</label>
+                <div >
+                  <input type="date" id="1466160520_date" placeholder="3/4/2024" class="form-control" >
+                </div>
+              </div>
+
+              <div>
+                <label>نوع الطلب للعقار</label>
+                <select name="entry.1869402195" id="">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="مدعوم">مدعوم</option>
+                  <option value="غير مدعوم">غير مدعوم</option>
+                </select>
+              </div>
+
+              <div>
+                <label>موقع العقار</label>
+                <input type="text" name="entry.961979694" placeholder="" />
+              </div>
+
+              <div>
+                <label> هل تم تحديد العقار </label>
+                <select name="entry.1847447004" id="">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="نعم">نعم</option>
+                  <option value="لا">لا</option>
+                </select>
+
+                <label>قيمه العقار</label>
+                <input
+                  type="text"
+                  name="entry.343568808" 
+                  placeholder="100000"
+                />
+              </div>
+              <div>
+                <label>هل ترغب في توفير الدفعة المقدمه</label>
+                <select name="entry.1247937808" id="">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="نعم">نعم</option>
+                  <option value="لا">لا</option>
+                </select>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- المستثمر -->
+            <div class="Investor-form form-step">
+              <div class="bg-svg"></div>
+              <h2>مستثمر</h2>
+              <div>
+                <label>نوع العقار</label>
+                <select name="entry.64094790" id="">
+                  <option value="" disabled selected>اختار الاجابه</option>
+                  <option value="رهن مقابل العقار">رهن مقابل العقار</option>
+                  <option value="تمويل شركات ومؤسسات">
+                    تمويل شركات ومؤسسات
+                  </option>
+                  <option value="اخري">اخري</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- القسم الاخير -->
+
+            <div class="form-three form-step">
+              <div class="bg-svg"></div>
+              <h2>اضافة ملاحظة</h2>
+              <div>
+                <textarea
+                  name="entry.804521541"
+                  id=""
+                  cols="30"
+                  rows="10"
+                ></textarea>
+                <label for="">بريد الكتروني</label>
+                <input
+                  name="entry.965910026"
+                  type="email"
+                  placeholder="your email address"
+                />
+              </div>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn-prev" disabled>back</button>
+              <button type="button" class="btn-next">next</button>
+              <button type="submit" class="btn-submit" class="btn btn-primary"  value="Submit">submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
