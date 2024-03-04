@@ -97,6 +97,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  var propertySelected = document.querySelector(
+    'select[name="entry.1847447004"]'
+  );
+  var enterPriceDiv = document.querySelector(".Enter_price");
+
+  propertySelected.addEventListener("change", function () {
+    // إظهار Enter_price إذا تم اختيار "نعم"
+    if (this.value === "نعم") {
+      enterPriceDiv.style.display = "block";
+    } else {
+      enterPriceDiv.style.display = "none";
+    }
+  });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const roleSelect = document.getElementById("roleSelect");
+  const btnNext = document.querySelector(".btn-next");
+  const warningMessage = document.getElementById("warningMessage");
+
+  
+  toggleNextButton();
+
+  
+  roleSelect.addEventListener("change", function () {
+    toggleNextButton();
+  });
+
+  function toggleNextButton() {
+    if (roleSelect.value) {
+      btnNext.disabled = false; 
+      warningMessage.style.display = "none"; 
+    } else {
+      btnNext.disabled = true; 
+      warningMessage.style.display = "block"; 
+    }
+  }
+});
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const btnNext = document.querySelector(".btn-next");
   const roleSelect = document.getElementById("roleSelect");
@@ -104,69 +153,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   btnNext.addEventListener("click", function () {
     if (roleSelect.value === "") {
-     
       warningMessage.style.display = "block";
     } else {
-      
       warningMessage.style.display = "none";
-     
     }
   });
 });
-
-
-let pageHistory = "0"; // Start with the first page
-
-function goToNextPage(currentPage) {
-  // Append the current page to the pageHistory
-  pageHistory += `,${currentPage}`;
-
-  // Logic to navigate to the next page
-}
-
-function submitForm() {
-  // Include pageHistory with the form data
-  const formData = {
-    // other form fields
-    pageHistory: pageHistory,
-  };
-
-  // Submit formData to the server
-}
-
-// This script requires jQuery and jquery-form plugin
-// You can use these ones from Cloudflare CDN:
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
-//
-$('#bootstrapForm').submit(function (event) {
-    event.preventDefault()
-    var extraData = {}
-    {
-        /* Parsing input date id=1466160520 */
-        var dateField = $("#1466160520_date").val()
-        var timeField = $("#1466160520_time").val()
-        let d = new Date(dateField)
-        if (!isNaN(d.getTime())) {
-            extraData["entry.1466160520_year"] = d.getFullYear()
-            extraData["entry.1466160520_month"] = d.getMonth() + 1
-            extraData["entry.1466160520_day"] = d.getUTCDate()
-        }
-        if (timeField && timeField.split(':').length >= 2) {
-            let values = timeField.split(':')
-            extraData["entry.1466160520_hour"] = values[0]
-            extraData["entry.1466160520_minute"] = values[1]
-        }
-    }
-    $('#bootstrapForm').ajaxSubmit({
-        data: extraData,
-        dataType: 'jsonp',  // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
-        error: function () {
-            // Submit of form should be successful but JSONP callback will fail because Google Forms
-            // does not support it, so this is handled as a failure.
-            alert('Form Submitted. Thanks.')
-            // You can also redirect the user to a custom thank-you page:
-            // window.location = 'http://www.mydomain.com/thankyoupage.html'
-        }
-    })
-})

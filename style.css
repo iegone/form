@@ -291,3 +291,6 @@ fieldset {
   flex-direction: column;
   border: none;
 }
+.Enter_price {
+    display: none;
+}
