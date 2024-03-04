@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var enterPriceDiv = document.querySelector(".Enter_price");
 
   propertySelected.addEventListener("change", function () {
-    // إظهار Enter_price إذا تم اختيار "نعم"
     if (this.value === "نعم") {
       enterPriceDiv.style.display = "block";
     } else {
