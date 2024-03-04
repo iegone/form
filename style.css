@@ -64,7 +64,7 @@ img {
 /* ==> progress */
 .form-box .progress {
   position: relative;
-  padding: 1em;
+  padding: 2em;
 }
 .logo {
   font-size: 1.75em;
@@ -116,13 +116,15 @@ img {
 }
 .progress ul li p {
   position: absolute;
-  top: -2em;
+  text-align: center;
+  top: 4em;
+  justify-content: center;
   font-size: 12px;
 }
 /* ==>form */
 .form-box form {
   width: 100%;
-  padding: 3em 1em;
+  padding: 1em 1em;
   background: white;
   border-radius: 30px 30px 15px 15px;
 }
@@ -256,7 +258,7 @@ form > .form-three .bg-svg {
     flex-direction: column;
     gap: 0;
   }
-  
+
   .progress ul.progress-steps li:not(:last-child)::before {
     content: " ";
     position: absolute;
@@ -279,12 +281,12 @@ form > .form-three .bg-svg {
     display: block;
   }
 }
-textarea{
+textarea {
   border: 1px solid var(--lighter-color);
   border-radius: 7px;
 }
 
-fieldset{
+fieldset {
   display: flex;
   flex-direction: column;
   border: none;

@@ -43,9 +43,9 @@
 
           <form
             action="https://docs.google.com/forms/d/e/1FAIpQLSfkiIq8DnQHG084WauB5k9WDc-cFtMpCfpY6wIw1gn9o9kP-w/formResponse"
-      target="_self"
-      id="bootstrapForm"
-      method="POST"
+            target="_self"
+            id="bootstrapForm"
+            method="POST"
           >
             <!-- القسم الاول -->
 
@@ -56,14 +56,20 @@
               <div>
                 <label>الإسم الثلاثي</label>
                 <input
-                  id="195245924" type="text" name="entry.195245924" class="form-control"
+                  id="195245924"
+                  type="text"
+                  name="entry.195245924"
+                  class="form-control"
                   placeholder="ضع الاسم بالكامل"
                 />
               </div>
               <div>
                 <label>رقم الجوال للتواصل</label>
                 <input
-                  id="585285828" type="text" name="entry.585285828" class="form-control"
+                  id="585285828"
+                  type="text"
+                  name="entry.585285828"
+                  class="form-control"
                   placeholder="+966 9999 9999"
                 />
               </div>
@@ -72,9 +78,9 @@
                 <label>صفه المستفيد للعقار</label>
                 <select name="entry.150081308" id="roleSelect">
                   <option value="" disabled selected>اختار الاجابه</option>
-                  <option value="Seller-form">Seller-form</option>
-                  <option value="Buyer-form">Buyer-form</option>
-                  <option value="Investor-form">Investor-form</option>
+                  <option value="Seller-form">بائع(المالك)</option>
+                  <option value="Buyer-form">مشتري</option>
+                  <option value="Investor-form">مستثمر</option>
                 </select>
                 <div id="warningMessage" style="color: red; display: none">
                   عليك الاختيار أولاً
@@ -87,7 +93,7 @@
             <div class="Seller-form form-step">
               <div class="bg-svg"></div>
               <h2>بائع(مالك)</h2>
-              
+
               <div>
                 <label>نوع العقار</label>
                 <select name="entry.1060538081">
@@ -132,13 +138,6 @@
                 </select>
               </div>
             </div>
-
-
-
-
-
-
-
 
             <!--  المشتري -->
 
@@ -206,8 +205,13 @@
 
               <div class="birth">
                 <label>تاريخ الميلاد</label>
-                <div >
-                  <input type="date" id="1466160520_date" placeholder="3/4/2024" class="form-control" >
+                <div>
+                  <input
+                    type="date"
+                    id="1466160520_date"
+                    placeholder="3/4/2024"
+                    class="form-control"
+                  />
                 </div>
               </div>
 
@@ -236,7 +240,7 @@
                 <label>قيمه العقار</label>
                 <input
                   type="text"
-                  name="entry.343568808" 
+                  name="entry.343568808"
                   placeholder="100000"
                 />
               </div>
@@ -249,25 +253,6 @@
                 </select>
               </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <!-- المستثمر -->
             <div class="Investor-form form-step">
@@ -309,7 +294,14 @@
             <div class="btn-group">
               <button type="button" class="btn-prev" disabled>back</button>
               <button type="button" class="btn-next">next</button>
-              <button type="submit" class="btn-submit" class="btn btn-primary"  value="Submit">submit</button>
+              <button
+                type="submit"
+                class="btn-submit"
+                class="btn btn-primary"
+                value="Submit"
+              >
+                submit
+              </button>
             </div>
           </form>
         </div>
