@@ -11,31 +11,31 @@ const InvestorForm = document.querySelector(".Investor-form");
 const formThree = document.querySelector(".form-three");
 let currentStep = 0;
 
-nextButton.addEventListener("click", () => {
-  active++;
-  if (active > steps.length) {
-    active = steps.length;
-  }
-  updateProgress();
-});
-
 prevButton.addEventListener("click", () => {
   if (currentStep === 2) {
-    formThree.classList.remove("active"); 
-    currentStep = 1; 
+    formThree.classList.remove("active");
+    currentStep = 1;
   } else if (currentStep === 1) {
     if (roleSelect.value === "Seller-form") {
       sellerForm.classList.remove("active");
     } else if (roleSelect.value === "Buyer-form") {
       buyerForm.classList.remove("active");
     } else if (roleSelect.value === "Investor-form") {
-      InvestorForm.classList.remove("active");
+      investorForm.classList.remove("active");
     }
-    currentStep = 0; 
+    currentStep = 0;
   }
   active--;
   if (active < 1) {
     active = 1;
+  }
+  updateProgress();
+});
+
+nextButton.addEventListener("click", () => {
+  active++;
+  if (active > steps.length) {
+    active = steps.length;
   }
   updateProgress();
 });
@@ -68,10 +68,10 @@ const updateProgress = () => {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  const btnNext = document.querySelector(".btn-next");
+  const nextButton = document.querySelector(".btn-next");
   const formSteps = document.querySelectorAll(".form-step");
 
-  btnNext.addEventListener("click", function () {
+  nextButton.addEventListener("click", function () {
     formSteps.forEach(function (step) {
       step.classList.remove("active");
     });
@@ -82,9 +82,11 @@ document.addEventListener("DOMContentLoaded", function () {
         currentStep = 1;
       } else if (roleSelect.value === "Buyer-form") {
         buyerForm.classList.add("active");
+        sellerForm.classList.remove("active");
         currentStep = 1;
       } else if (roleSelect.value === "Investor-form") {
         InvestorForm.classList.add("active");
+
         currentStep = 1;
       }
     } else if (currentStep === 1) {
@@ -93,13 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var propertySelected = document.querySelector(
@@ -116,41 +111,34 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const roleSelect = document.getElementById("roleSelect");
-  const btnNext = document.querySelector(".btn-next");
+  const nextButton = document.querySelector(".btn-next");
   const warningMessage = document.getElementById("warningMessage");
 
-  
   toggleNextButton();
 
-  
   roleSelect.addEventListener("change", function () {
     toggleNextButton();
   });
 
   function toggleNextButton() {
     if (roleSelect.value) {
-      btnNext.disabled = false; 
-      warningMessage.style.display = "none"; 
+      nextButton.disabled = false;
+      warningMessage.style.display = "none";
     } else {
-      btnNext.disabled = true; 
-      warningMessage.style.display = "block"; 
+      nextButton.disabled = true;
+      warningMessage.style.display = "block";
     }
   }
 });
 
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
-  const btnNext = document.querySelector(".btn-next");
+  const nextButton = document.querySelector(".btn-next");
   const roleSelect = document.getElementById("roleSelect");
   const warningMessage = document.getElementById("warningMessage");
 
-  btnNext.addEventListener("click", function () {
+  nextButton.addEventListener("click", function () {
     if (roleSelect.value === "") {
       warningMessage.style.display = "block";
     } else {

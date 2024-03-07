@@ -286,11 +286,7 @@ textarea {
   border-radius: 7px;
 }
 
-fieldset {
-  display: flex;
-  flex-direction: column;
-  border: none;
-}
+
 .Enter_price {
     display: none;
 }
