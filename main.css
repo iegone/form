@@ -332,21 +332,24 @@ form > div.active {
 ::placeholder {
   color: var(--light-color);
 }
-
 .Seller,
 .Buyer,
 .Investor {
   display: none;
 }
-
 @media screen and (min-width: 768px) {
   .form-box {
     flex-direction: row;
   }
   .black {
-  height: 100%;
-  width: 100%;
-  background: #00000069;
+    height: 100%;
+    width: 100%;
+    background: #00000069;
+  }
+  .black {
+    height: 100%;
+    width: 100%;
+    background: #00000069;
   }
 
   .progress {
