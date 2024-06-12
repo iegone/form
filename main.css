@@ -341,6 +341,11 @@ form > div.active {
   .form-box {
     flex-direction: row;
   }
+  .black {
+  height: 100%;
+  width: 100%;
+  background: #00000069;
+  }
 
   .progress {
     flex: 1 0 35%;
