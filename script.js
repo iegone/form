@@ -34,7 +34,6 @@ $("#bootstrapForm").submit(function (event) {
 function okBtn() {
   document.getElementById("popup").classList.remove("open");
   document.querySelector(".black").style.display = "none";
-  location.reload();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
