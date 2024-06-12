@@ -1,71 +1,41 @@
-const nextButton = document.querySelector(".btn-next");
-const prevButton = document.querySelector(".btn-prev");
-const steps = document.querySelectorAll(".step");
-const form_steps = document.querySelectorAll(".form-step");
-let active = 1;
-
-const roleSelect = document.getElementById("roleSelect");
-const sellerForm = document.querySelector(".Seller-form");
-const buyerForm = document.querySelector(".Buyer-form");
-const InvestorForm = document.querySelector(".Investor-form");
-const formThree = document.querySelector(".form-three");
-let currentStep = 0;
-
-prevButton.addEventListener("click", () => {
-  if (currentStep === 2) {
-    formThree.classList.remove("active");
-    currentStep = 1;
-  } else if (currentStep === 1) {
-    if (roleSelect.value === "Seller-form") {
-      sellerForm.classList.remove("active");
-    } else if (roleSelect.value === "Buyer-form") {
-      buyerForm.classList.remove("active");
-    } else if (roleSelect.value === "Investor-form") {
-      investorForm.classList.remove("active");
+$("#bootstrapForm").submit(function (event) {
+  event.preventDefault();
+  var extraData = {};
+  {
+    /* Parsing input date id=1466160520 */
+    var dateField = $("#1466160520_date").val();
+    var timeField = $("#1466160520_time").val();
+    let d = new Date(dateField);
+    if (!isNaN(d.getTime())) {
+      extraData["entry.1466160520_year"] = d.getFullYear();
+      extraData["entry.1466160520_month"] = d.getMonth() + 1;
+      extraData["entry.1466160520_day"] = d.getUTCDate();
     }
-    currentStep = 0;
-  }
-  active--;
-  if (active < 1) {
-    active = 1;
-  }
-  updateProgress();
-});
-
-nextButton.addEventListener("click", () => {
-  active++;
-  if (active > steps.length) {
-    active = steps.length;
-  }
-  updateProgress();
-});
-
-const updateProgress = () => {
-  console.log("steps.length =>" + steps.length);
-  console.log("active => " + active);
-  steps.forEach((step, i) => {
-    if (i == active - 1) {
-      step.classList.add("active");
-      if (form_steps[i]) {
-        form_steps[i].classList.add("active");
-      }
-      console.log("i =>" + i);
-    } else {
-      step.classList.remove("active");
-      if (form_steps[i]) {
-        form_steps[i].classList.remove("active");
-      }
+    if (timeField && timeField.split(":").length >= 2) {
+      let values = timeField.split(":");
+      extraData["entry.1466160520_hour"] = values[0];
+      extraData["entry.1466160520_minute"] = values[1];
     }
+  }
+  $("#bootstrapForm").ajaxSubmit({
+    data: extraData,
+    dataType: "jsonp", // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
+    error: function () {
+      // Submit of form should be successful but JSONP callback will fail because Google Forms
+      // does not support it, so this is handled as a failure.
+
+      document.getElementById("popup").classList.add("open");
+      document.querySelector(".black").style.display = "block";
+      // You can also redirect the user to a custom thank-you page:
+      // window.location = 'http://www.mydomain.com/thankyoupage.html'
+    },
   });
-  if (active == 1) {
-    prevButton.disabled = true;
-  } else if (active === steps.length) {
-    nextButton.disabled = true;
-  } else {
-    prevButton.disabled = false;
-    nextButton.disabled = false;
-  }
-};
+});
+function okBtn() {
+  document.getElementById("popup").classList.remove("open");
+  document.querySelector(".black").style.display = "none";
+  location.reload();
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const nextButton = document.querySelector(".btn-next");
@@ -159,27 +129,12 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleNextButton();
   });
 
-  function toggleNextButton() {
-    if (roleSelect.value) {
-      nextButton.disabled = false;
-      warningMessage.style.display = "none";
-    } else {
-      nextButton.disabled = true;
-      warningMessage.style.display = "block";
-    }
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const nextButton = document.querySelector(".btn-next");
-  const roleSelect = document.getElementById("roleSelect");
-  const warningMessage = document.getElementById("warningMessage");
-
-  nextButton.addEventListener("click", function () {
-    if (roleSelect.value === "") {
-      warningMessage.style.display = "block";
-    } else {
-      warningMessage.style.display = "none";
-    }
+  propertySelected.addEventListener("change", function () {
+    enterPriceDiv.style.display = this.value === "نعم" ? "block" : "none";
   });
+
+  // Initial call to set the correct state on page load
+  warningMessage.style.display = "none";
+  toggleNextButton();
+  updateProgress();
 });
