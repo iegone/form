@@ -25,7 +25,7 @@ $("#bootstrapForm").submit(function (event) {
       // does not support it, so this is handled as a failure.
 
       document.getElementById("popup").classList.add("open");
-      document.querySelector(".black").style.display = "block";
+      // document.querySelector(".black").style.display = "block";
       // You can also redirect the user to a custom thank-you page:
       // window.location = 'http://www.mydomain.com/thankyoupage.html'
     },
@@ -33,7 +33,7 @@ $("#bootstrapForm").submit(function (event) {
 });
 function okBtn() {
   document.getElementById("popup").classList.remove("open");
-  document.querySelector(".black").style.display = "none";
+  // document.querySelector(".black").style.display = "none";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
